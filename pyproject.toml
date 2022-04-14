@@ -1,0 +1,13 @@
+[tool.isort]
+profile = 'black'
+ensure_newline_before_comments = true
+extend_skip = ["migrations", "manage.py"]
+filter_files = true
+force_single_line = true
+group_by_package = true
+import_heading_django = "django"
+import_heading_stdlib = "standard library"
+import_heading_thirdparty = "others libraries"
+known_django = "django"
+lines_between_types = 1
+sections = ["FUTURE", "STDLIB", "DJANGO", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]

@@ -68,3 +68,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def is_superuser(self):
         return self.admin
+
+    def save(self, *args, **kwargs):
+        """Normalize email address on change"""
+        self.email = UserManager.normalize_email(self.email)
+        super().save(*args, **kwargs)

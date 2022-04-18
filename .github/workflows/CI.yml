@@ -24,7 +24,12 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install pre-commit
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Install pre-commit hooks
+      run: |
+        pre-commit install --hook-type pre-commit --hook-type pre-push
     - name: Run pre-commit hooks
       run: |
-        pre-commit install
-        pre-commit run -a
+        pre-commit run -a --hook-stage commit
+    - name: Run pre-push hooks
+      run: |
+        pre-commit run -a --hook-stage push

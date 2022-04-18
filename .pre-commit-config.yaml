@@ -1,4 +1,4 @@
-exclude: '.git|.tox'
+exclude: '.git|.tox|migrations|manage.py|venv'
 default_stages: [commit]
 fail_fast: true
 
@@ -9,12 +9,34 @@ repos:
       - id: black
         language_version: python3.9
 
+  - repo: https://github.com/timothycrosley/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+
   - repo: https://github.com/pycqa/flake8
     rev: 4.0.1
     hooks:
     - id: flake8
 
-  - repo: https://github.com/timothycrosley/isort
-    rev: 5.10.1
+  - repo: local
     hooks:
-      - id: isort
+      - id: migrations
+        name: check migrations
+        entry: python3 manage.py makemigrations --check --dry-run
+        language: system
+        verbose: true
+        always_run: true
+        pass_filenames: false
+        stages:
+        - push
+
+      - id: tests
+        name: run tests
+        entry: python3 manage.py test
+        language: system
+        verbose: true
+        always_run: true
+        pass_filenames: false
+        stages:
+        - push

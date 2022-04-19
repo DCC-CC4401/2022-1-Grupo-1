@@ -2,6 +2,7 @@
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
+from django.urls import reverse
 
 from .managers import UserManager
 
@@ -73,3 +74,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         """Normalize email address on change"""
         self.email = UserManager.normalize_email(self.email)
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("home")

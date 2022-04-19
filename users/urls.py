@@ -1,6 +1,15 @@
 # django
 # from django.urls import path
 
-# from . import views
+# django
+from django.urls import path
 
-urlpatterns = []
+from . import views as users_views
+
+urlpatterns = [
+    path(
+        "login/",
+        users_views.LoginView.as_view(),
+        name="login",
+    )
+]

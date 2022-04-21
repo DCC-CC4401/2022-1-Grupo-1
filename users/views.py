@@ -1,6 +1,7 @@
 # django
 from django.contrib.auth import views as auth_views
-from django.views.generic import CreateView
+
+from base.views import BaseCreateView
 
 from .forms import RegisterForm
 
@@ -17,14 +18,11 @@ class LoginView(auth_views.LoginView):
         return context
 
 
-class UserCreateView(CreateView):
+class UserCreateView(BaseCreateView):
     """View to create new users"""
 
     title = "Registro"
     template_name = "users/create.html"
     form_class = RegisterForm
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["title"] = self.title
-        return context
+    login_required = False
+    permission_required = ()

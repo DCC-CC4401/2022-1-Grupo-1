@@ -1,5 +1,6 @@
 # django
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 
@@ -36,3 +37,7 @@ class Visit(models.Model):
         verbose_name="check in",
         default=timezone.now,
     )
+
+    def get_absolute_url(self):
+        # TODO: change this when detail view available
+        return reverse("home")

@@ -1,6 +1,5 @@
 exclude: '.git|.tox|migrations|manage.py|venv'
 default_stages: [commit]
-fail_fast: true
 
 repos:
   - repo: https://github.com/psf/black
@@ -28,6 +27,7 @@ repos:
         verbose: true
         always_run: true
         pass_filenames: false
+        fail_fast: true
         stages:
         - push
 

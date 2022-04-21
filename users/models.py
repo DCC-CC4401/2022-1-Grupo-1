@@ -22,15 +22,19 @@ class User(AbstractBaseUser, PermissionsMixin):
         unique=True,
     )
     name = models.CharField(
+        verbose_name="name",
         max_length=50,
     )
     first_last_name = models.CharField(
+        verbose_name="first last name",
         max_length=50,
     )
     second_last_name = models.CharField(
+        verbose_name="second last name",
         max_length=50,
     )
     phone = models.CharField(
+        verbose_name="phone",
         max_length=13,
     )
 

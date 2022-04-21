@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # internal apps
     "base",
     "users",
+    "department",
 ]
 
 MIDDLEWARE = [

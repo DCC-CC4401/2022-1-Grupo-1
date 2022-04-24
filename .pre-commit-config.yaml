@@ -24,7 +24,6 @@ repos:
         name: check migrations
         entry: python3 manage.py makemigrations --check --dry-run
         language: system
-        verbose: true
         always_run: true
         pass_filenames: false
         fail_fast: true
@@ -35,7 +34,6 @@ repos:
         name: run tests
         entry: python3 manage.py test
         language: system
-        verbose: true
         always_run: true
         pass_filenames: false
         stages:

@@ -80,4 +80,5 @@ class User(AbstractBaseUser, PermissionsMixin):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
+        # TODO: change this when detail view available
         return reverse("home")

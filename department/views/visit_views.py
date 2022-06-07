@@ -1,6 +1,5 @@
 from base.views import BaseCreateView
-
-from .forms import VisitForm
+from department.forms import VisitForm
 
 
 class VisitCreateView(BaseCreateView):

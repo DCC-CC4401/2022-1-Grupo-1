@@ -3,10 +3,13 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
+from base.models import file_path
+from users.models import User
+
 
 # Create your models here.
 class Visit(models.Model):
-    """Model thath represents a visit"""
+    """Model that represents a visit"""
 
     # TODO: add department foreign key when department model is created
     rut = models.CharField(
@@ -41,3 +44,27 @@ class Visit(models.Model):
     def get_absolute_url(self):
         # TODO: change this when detail view available
         return reverse("home")
+
+
+class Announcement(models.Model):
+    """Model that represents an Announcement"""
+
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        related_name="announcements",
+    )
+    date = models.DateField(
+        verbose_name="date",
+        default=timezone.now,
+    )
+    title = models.CharField(
+        verbose_name="title",
+        max_length=255,
+    )
+    desciption = models.TextField(
+        verbose_name="description",
+    )
+    image = models.ImageField(
+        upload_to=file_path,
+    )

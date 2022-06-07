@@ -11,11 +11,20 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 # standard library
+import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Define Media root and url
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+MEDIA_URL = "/uploads/"
+
+# Define Static root and url
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_URL = "/static/"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -126,12 +135,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = "/static/"
 
 # enable bootstrap for crispy-forms
 CRISPY_TEMPLATE_PACK = "bootstrap4"

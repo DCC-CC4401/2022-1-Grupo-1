@@ -49,7 +49,7 @@ class Visit(models.Model):
 class Announcement(models.Model):
     """Model that represents an Announcement"""
 
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name="announcements",
@@ -62,9 +62,13 @@ class Announcement(models.Model):
         verbose_name="title",
         max_length=255,
     )
-    desciption = models.TextField(
+    description = models.TextField(
         verbose_name="description",
     )
     image = models.ImageField(
         upload_to=file_path,
     )
+
+    def get_absolute_url(self):
+        # TODO: change this when detail view available
+        return reverse("home")

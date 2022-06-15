@@ -11,6 +11,9 @@ visit_urlpatterns = [
 announcement_urlpatterns = [
     path("create/", views.AnnouncementCreateView.as_view(), name="announcement_create"),
     path("list/", views.AnnouncementListView.as_view(), name="announcement_list"),
+    path(
+        "<int:pk>", views.AnnouncementDetailView.as_view(), name="announcement_detail"
+    ),
 ]
 
 urlpatterns = [

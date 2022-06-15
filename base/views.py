@@ -1,6 +1,7 @@
 # django
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.exceptions import ImproperlyConfigured
+from django.views.generic import DetailView
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 from django.views.generic.edit import DeleteView
@@ -50,6 +51,11 @@ class TitleMixin:
 
 
 class BaseTemplateView(LoginPermissionRequiredMixin, TitleMixin, TemplateView):
+    login_required = True
+    permission_required = ()
+
+
+class BaseDetailView(LoginPermissionRequiredMixin, TitleMixin, DetailView):
     login_required = True
     permission_required = ()
 

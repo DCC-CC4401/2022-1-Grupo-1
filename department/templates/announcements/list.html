@@ -1,13 +1,7 @@
 {% extends "base/form.html" %}
 
 {% block content %}
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand">{{ title }}</a>
-  <form class="form-inline">
-    <a class="btn btn-outline-success my-2 my-sm-0" href="{% url "announcement_create" %}">Añadir</a>
-  </form>
-</nav>
-<br>
+{% include "announcements/includes/announcement_navbar.html" %}
 {% if object_list %}
 <div class="row row-cols-1 row-cols-md-3">
   {% for announcement in object_list %}

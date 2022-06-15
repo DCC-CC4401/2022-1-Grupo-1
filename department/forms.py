@@ -31,3 +31,12 @@ class AnnouncementForm(forms.ModelForm):
             "description",
             "image",
         )
+
+
+class AnnouncementChangeForm(forms.ModelForm):
+    class Meta:
+        model = Announcement
+        fields = (
+            "title",
+            "description",
+        )

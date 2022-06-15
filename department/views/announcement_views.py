@@ -1,6 +1,8 @@
 from base.views import BaseCreateView
 from base.views import BaseDetailView
 from base.views import BaseListView
+from base.views import BaseUpdateView
+from department.forms import AnnouncementChangeForm
 from department.forms import AnnouncementForm
 from department.models import Announcement
 
@@ -24,13 +26,21 @@ class AnnouncementCreateView(BaseCreateView):
         return kwargs
 
 
-class AnnouncementListView(BaseListView):
+class AnnouncementUpdateView(BaseUpdateView):
     title = "Anuncios"
     model = Announcement
+    form_class = AnnouncementChangeForm
     login_required = True
     permission_required = ()
-    template_name = "announcements/list.html"
-    paginate_by = 12
+    template_name = "announcements/update.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["back_button"] = True
+        return context
+
+    def get_title(self):
+        return str(self.object)
 
 
 class AnnouncementDetailView(BaseDetailView):
@@ -40,5 +50,26 @@ class AnnouncementDetailView(BaseDetailView):
     context_object_name = "announcement"
     template_name = "announcements/detail.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user == self.object.user:
+            context["update_button"] = True
+            context["delete_button"] = True
+        return context
+
     def get_title(self):
         return str(self.object)
+
+
+class AnnouncementListView(BaseListView):
+    title = "Anuncios"
+    model = Announcement
+    login_required = True
+    permission_required = ()
+    template_name = "announcements/list.html"
+    paginate_by = 12
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["add_button"] = True
+        return context

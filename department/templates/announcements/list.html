@@ -12,6 +12,10 @@
           <h5 class="card-title">{{ announcement.title }}</h5>
           <p class="card-text">{{ announcement.short_description }}</p>
           <a href="{{ announcement.get_absolute_url }}" class="btn btn-primary">Detalle</a>
+          {% if request.user == announcement.user %}
+            <a href="{% url "announcement_update" announcement.pk %}" class="btn btn-outline-success">Actualizar</a>
+            <a href="{% url "home" %}" class="btn btn-outline-danger">Eliminar</a>
+          {% endif %}
         </div>
       </div>
     </div>

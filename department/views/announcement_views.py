@@ -1,4 +1,5 @@
 from base.views import BaseCreateView
+from base.views import BaseListView
 from department.forms import AnnouncementForm
 from department.models import Announcement
 
@@ -20,3 +21,12 @@ class AnnouncementCreateView(BaseCreateView):
         kwargs = super().get_form_kwargs()
         kwargs["instance"] = self.model(user=self.request.user)
         return kwargs
+
+
+class AnnouncementListView(BaseListView):
+    title = "Anuncios"
+    model = Announcement
+    login_required = True
+    permission_required = ()
+    template_name = "announcements/list.html"
+    paginate_by = 24

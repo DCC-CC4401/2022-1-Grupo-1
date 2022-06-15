@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+  {% block before_form %}
+  {% endblock %}
+  <div class="d-flex border border-black p-5 justify-content-center">
+    <form action="" method="post">
+      {% csrf_token %}
+      <p>Estas seguro que quieres eliminar "{{ object }}"?</p>
+      <br>
+      <div class="d-flex justify-content-center">
+        <input class="btn btn-outline-danger mr-2" type="submit" value="Confirmar">
+        <a class="btn btn-outline-secondary" href="{{ object.get_absolute_url }}">Cancelar</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

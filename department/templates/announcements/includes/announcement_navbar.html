@@ -8,7 +8,7 @@
     <a class="btn btn-outline-primary my-2 my-sm-0 mr-2" href="{% url "announcement_update" announcement.pk %}">Actualizar</a>
     {% endif %}
     {% if delete_button %}
-    <a class="btn btn-outline-danger my-2 my-sm-0" href="{% url "announcement_create" %}">Eliminar</a>
+    <a class="btn btn-outline-danger my-2 my-sm-0" href="{% url "announcement_delete" announcement.pk %}">Eliminar</a>
     {% endif %}
     {% if back_button %}
     <a class="btn btn-outline-secondary my-2 my-sm-0" href="javascript:history.back()">Volver</a>

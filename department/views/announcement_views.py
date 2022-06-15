@@ -1,4 +1,8 @@
+# django
+from django.urls import reverse
+
 from base.views import BaseCreateView
+from base.views import BaseDeleteView
 from base.views import BaseDetailView
 from base.views import BaseListView
 from base.views import BaseUpdateView
@@ -39,6 +43,9 @@ class AnnouncementUpdateView(BaseUpdateView):
         context["back_button"] = True
         return context
 
+    def can_access(self, request):
+        return self.object.user == request.user
+
     def get_title(self):
         return str(self.object)
 
@@ -59,6 +66,23 @@ class AnnouncementDetailView(BaseDetailView):
 
     def get_title(self):
         return str(self.object)
+
+
+class AnnouncementDeleteView(BaseDeleteView):
+    model = Announcement
+    login_required = True
+    permission_required = ()
+    context_object_name = "announcement"
+    template_name = "announcements/delete.html"
+
+    def get_success_url(self):
+        return reverse("announcement_list")
+
+    def can_access(self, request):
+        return self.object.user == request.user
+
+    def get_title(self):
+        return f"Eliminar {self.object}"
 
 
 class AnnouncementListView(BaseListView):

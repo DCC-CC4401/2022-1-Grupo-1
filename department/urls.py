@@ -29,6 +29,11 @@ announcement_urlpatterns = [
         name="announcement_update",
     ),
     path(
+        "delete/<int:pk>",
+        views.AnnouncementDeleteView.as_view(),
+        name="announcement_delete",
+    ),
+    path(
         "list/",
         views.AnnouncementListView.as_view(),
         name="announcement_list",

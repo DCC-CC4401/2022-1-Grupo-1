@@ -78,4 +78,7 @@ class Announcement(models.Model):
 
     def get_absolute_url(self):
         # TODO: change this when detail view available
-        return reverse("home")
+        return reverse("announcement_detail", args=(self.pk,))
+
+    def __str__(self):
+        return f"Anuncio: {self.title}"

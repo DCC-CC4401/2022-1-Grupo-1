@@ -1,4 +1,5 @@
 from base.views import BaseCreateView
+from base.views import BaseDetailView
 from base.views import BaseListView
 from department.forms import AnnouncementForm
 from department.models import Announcement
@@ -30,3 +31,14 @@ class AnnouncementListView(BaseListView):
     permission_required = ()
     template_name = "announcements/list.html"
     paginate_by = 12
+
+
+class AnnouncementDetailView(BaseDetailView):
+    model = Announcement
+    login_required = True
+    permission_required = ()
+    context_object_name = "announcement"
+    template_name = "announcements/detail.html"
+
+    def get_title(self):
+        return str(self.object)

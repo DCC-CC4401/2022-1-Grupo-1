@@ -69,6 +69,13 @@ class Announcement(models.Model):
         upload_to=file_path,
     )
 
+    @property
+    def short_description(self, length=100):
+        short_description = self.description[:length]
+        if len(self.description) > length:
+            short_description += "..."
+        return short_description
+
     def get_absolute_url(self):
         # TODO: change this when detail view available
         return reverse("home")

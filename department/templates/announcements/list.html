@@ -1,0 +1,20 @@
+{% extends "base/form.html" %}
+
+{% block content %}
+<ul>
+<div class="card-deck">
+  {% for announcement in object_list %}
+    <div class="card">
+      <img src="{{ announcement.image.url }}" class="card-img-top" alt="announcement_image">
+      <div class="card-body">
+        <h5 class="card-title">{{ announcement.title }}</h5>
+        <p class="card-text">{{ announcement.short_description }}</p>
+        <a href="{{ announcement.get_absolute_url }}" class="btn btn-primary">Detalle</a>
+      </div>
+    </div>
+  {% empty %}
+    <li>No hay anuncios para mostrar</li>
+  {% endfor %}
+</div>
+</ul>
+{% endblock %}

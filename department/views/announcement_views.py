@@ -29,4 +29,4 @@ class AnnouncementListView(BaseListView):
     login_required = True
     permission_required = ()
     template_name = "announcements/list.html"
-    paginate_by = 24
+    paginate_by = 12

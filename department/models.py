@@ -82,3 +82,27 @@ class Announcement(models.Model):
 
     def __str__(self):
         return f"Anuncio: {self.title}"
+
+
+class Parking(models.Model):
+    """Model for parking table"""
+
+    status = models.CharField(
+        verbose_name= "Status",
+        max_length= 10
+        ###ver lo de las opciones
+    )
+
+    number = models.IntegerField(
+        verbose_name= "Parking space number"
+        ###Ver que solo sea una cantidad definida
+    )
+
+    ##TODO: agregar atrib department
+
+    license_plate = models.CharField(
+        verbose_name = "license plate",
+        max_length = 8,
+        blank= True,
+        
+    )

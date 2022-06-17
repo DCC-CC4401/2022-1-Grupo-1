@@ -1,0 +1,38 @@
+{% extends "base/form.html" %}
+
+{%block content%}
+
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Departamento</th>
+        <th scope="col">Patente</th>
+        <th scope="col">Estado</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for parking in object_list %}
+            <tr>
+                <td>
+                    {{parking.pk}}
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    {{parking.license_plate}}
+                </td>
+                <td>
+                    {{parking.status}}
+                </td>
+                <td>
+                    <a class="btn btn-outline-success" href = "#">Actualizar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{%endblock%}

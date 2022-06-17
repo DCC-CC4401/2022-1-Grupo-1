@@ -40,7 +40,16 @@ announcement_urlpatterns = [
     ),
 ]
 
+parking_urlpaterns = [
+    path(
+        "list/",
+        views.ParkingListView.as_view(),
+        name="parking_list",
+    ),
+]
+
 urlpatterns = [
     path("visit/", include(visit_urlpatterns)),
     path("announcement/", include(announcement_urlpatterns)),
+    path("parking/", include(parking_urlpaterns))
 ]

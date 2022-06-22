@@ -6,6 +6,8 @@ from django.utils import timezone
 from base.models import file_path
 from users.models import User
 
+from .enums import ParkingStatus
+
 
 # Create your models here.
 class Visit(models.Model):
@@ -82,3 +84,31 @@ class Announcement(models.Model):
 
     def __str__(self):
         return f"Anuncio: {self.title}"
+
+
+class Parking(models.Model):
+    """Model for parking table"""
+
+    status = models.CharField(
+        verbose_name="Status",
+        max_length=10,
+        choices=ParkingStatus.CHOICES,
+        # ver lo de las opciones
+    )
+
+    number = models.IntegerField(
+        verbose_name="Parking space number"
+        # Ver que solo sea una cantidad definida
+    )
+
+    # TODO: agregar atrib department
+
+    license_plate = models.CharField(
+        verbose_name="license plate",
+        max_length=8,
+        blank=True,
+    )
+
+    def get_absolute_url(self):
+        # TODO: change this when detail view available
+        return reverse("parking_list")

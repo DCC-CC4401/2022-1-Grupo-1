@@ -2,6 +2,7 @@
 from django import forms
 
 from .models import Announcement
+from .models import Parking
 from .models import Visit
 
 
@@ -39,4 +40,13 @@ class AnnouncementChangeForm(forms.ModelForm):
         fields = (
             "title",
             "description",
+        )
+
+
+class ParkingChangeForm(forms.ModelForm):
+    class Meta:
+        model = Parking
+        fields = (
+            "license_plate",
+            "status",
         )

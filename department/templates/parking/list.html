@@ -28,7 +28,7 @@
                     {{parking.status}}
                 </td>
                 <td>
-                    <a class="btn btn-outline-success" href = "{% url 'parking_update' parking.pk %}">Actualizar</a>
+                    <a class="btn btn-outline-success" href="{% url "parking_update" parking.pk %}">Actualizar</a>
                 </td>
             </tr>
         {% endfor %}

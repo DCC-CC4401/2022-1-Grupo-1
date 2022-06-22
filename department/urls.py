@@ -19,17 +19,17 @@ announcement_urlpatterns = [
         name="announcement_create",
     ),
     path(
-        "<int:pk>",
+        "<int:pk>/",
         views.AnnouncementDetailView.as_view(),
         name="announcement_detail",
     ),
     path(
-        "update/<int:pk>",
+        "<int:pk>/update/",
         views.AnnouncementUpdateView.as_view(),
         name="announcement_update",
     ),
     path(
-        "delete/<int:pk>",
+        "<int:pk>/delete/",
         views.AnnouncementDeleteView.as_view(),
         name="announcement_delete",
     ),
@@ -39,14 +39,18 @@ announcement_urlpatterns = [
         name="announcement_list",
     ),
 ]
-# Cambiar de lap el intpk y el url xdxdxd
+
 parking_urlpaterns = [
     path(
         "list/",
         views.ParkingListView.as_view(),
         name="parking_list",
     ),
-    path("update/<int:pk>", views.ParkingUpdateView.as_view(), name="parking_update"),
+    path(
+        "<int:pk>/update/",
+        views.ParkingUpdateView.as_view(),
+        name="parking_update",
+    ),
 ]
 
 urlpatterns = [

@@ -3,7 +3,6 @@ from django import forms
 
 from .models import Announcement
 from .models import Visit
-from .models import Parking
 
 
 class VisitForm(forms.ModelForm):
@@ -41,5 +40,3 @@ class AnnouncementChangeForm(forms.ModelForm):
             "title",
             "description",
         )
-
-

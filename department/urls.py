@@ -51,5 +51,5 @@ parking_urlpaterns = [
 urlpatterns = [
     path("visit/", include(visit_urlpatterns)),
     path("announcement/", include(announcement_urlpatterns)),
-    path("parking/", include(parking_urlpaterns))
+    path("parking/", include(parking_urlpaterns)),
 ]

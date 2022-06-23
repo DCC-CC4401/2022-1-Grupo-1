@@ -51,6 +51,10 @@ class Visit(models.Model):
         default=timezone.now,
     )
 
+    class Meta:
+        verbose_name = _("visit")
+        verbose_name_plural = _("visits")
+
     def get_absolute_url(self):
         # TODO: change this when detail view available
         return reverse("home")
@@ -77,8 +81,13 @@ class Announcement(models.Model):
         _("description"),
     )
     image = models.ImageField(
+        verbose_name=_("image"),
         upload_to=file_path,
     )
+
+    class Meta:
+        verbose_name = _("announcement")
+        verbose_name_plural = _("announcements")
 
     @property
     def short_description(self, length=100):
@@ -120,6 +129,10 @@ class Parking(models.Model):
         blank=True,
     )
 
+    class Meta:
+        verbose_name = _("parking")
+        verbose_name_plural = _("parkings")
+
     def get_absolute_url(self):
         return reverse("parking_list")
 
@@ -130,6 +143,10 @@ class Department(models.Model):
     number = models.IntegerField(
         _("number"),
     )
+
+    class Meta:
+        verbose_name = _("department")
+        verbose_name_plural = _("departments")
 
     def __str__(self):
         return str(self.number)
@@ -157,7 +174,11 @@ class ValidationCode(models.Model):
         choices=ValidationCodeStatus.CHOICES,
     )
 
+    class Meta:
+        verbose_name = _("validation code")
+        verbose_name_plural = _("validation codes")
+
     def use(self, user):
-        self.status = ValidationCodeStatus.USED
         self.user = user
+        self.status = ValidationCodeStatus.USED
         self.save()

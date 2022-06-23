@@ -1,14 +1,10 @@
 # django
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.contrib.auth.models import Group
 
 from .forms import UserAdminChangeForm
 from .forms import UserAdminCreationForm
 from .models import User
-
-# Remove Group Model from admin. We're not using it.
-admin.site.unregister(Group)
 
 
 class UserAdmin(BaseUserAdmin):

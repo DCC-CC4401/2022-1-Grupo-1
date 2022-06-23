@@ -65,6 +65,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         default=False,
     )
 
+    class Meta:
+        verbose_name = _("user")
+        verbose_name_plural = _("users")
+
     def get_full_name(self):
         # Returns the full name of the user
         return f"{self.name} {self.first_last_name} {self.second_last_name}"
@@ -89,5 +93,4 @@ class User(AbstractBaseUser, PermissionsMixin):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        # TODO: change this when detail view available
-        return reverse("home")
+        return reverse("profile")

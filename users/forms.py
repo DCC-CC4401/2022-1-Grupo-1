@@ -83,7 +83,6 @@ class RegisterForm(forms.ModelForm):
         if self.cleaned_data["user_type"] == UserType.DOORMAN:
             qs = ValidationCode.objects.filter(code=validation_code)
             if qs.exists() and qs[0].status == ValidationCodeStatus.AVAILABLE:
-                qs[0].status = ValidationCodeStatus.USED
                 return validation_code
             else:
                 raise forms.ValidationError(_("The code entered isn't available"))

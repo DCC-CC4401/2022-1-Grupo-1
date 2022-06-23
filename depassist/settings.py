@@ -51,9 +51,9 @@ INSTALLED_APPS = [
     "django_extensions",
     "crispy_forms",
     # internal apps
-    "base",
-    "users",
-    "department",
+    "base.apps.BaseConfig",
+    "users.apps.UsersConfig",
+    "department.apps.DepartmentConfig",
 ]
 
 MIDDLEWARE = [

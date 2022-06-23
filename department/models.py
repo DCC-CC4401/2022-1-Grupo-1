@@ -6,6 +6,8 @@ from django.utils import timezone
 from base.models import file_path
 from users.models import User
 
+from .enums import ParkingStatus
+
 
 # Create your models here.
 class Visit(models.Model):
@@ -89,7 +91,8 @@ class Parking(models.Model):
 
     status = models.CharField(
         verbose_name="Status",
-        max_length=10
+        max_length=10,
+        choices=ParkingStatus.CHOICES,
         # ver lo de las opciones
     )
 
@@ -105,3 +108,7 @@ class Parking(models.Model):
         max_length=8,
         blank=True,
     )
+
+    def get_absolute_url(self):
+        # TODO: change this when detail view available
+        return reverse("parking_list")

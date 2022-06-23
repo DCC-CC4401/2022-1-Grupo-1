@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<a class="btn btn-outline-primary mb-3" href="{% url "user_edit" %}">Editar</a>
+<div class="border border-dark p-5">
+  <p>
+    <span class="font-weight-bold">Rut:</span> {{ user.rut }}  
+  </p>
+  <br>
+  <p>
+    <span class="font-weight-bold">Email:</span> {{ user.email }}  
+  </p>
+  <br>
+  <p>
+    <span class="font-weight-bold">Nombre:</span> {{ user.name }}  
+  </p>
+  <br>
+  <p>
+    <span class="font-weight-bold">Primer Apellido:</span> {{ user.first_last_name }}  
+  </p>
+  <br>
+  <p>
+    <span class="font-weight-bold">Segundo Apellido:</span> {{ user.second_last_name }}  
+  </p>
+  <br>
+  <p>
+    <span class="font-weight-bold">Telefono:</span> {{ user.phone }}  
+  </p>
+  <br>
+  {% if user.department %}
+    <p>
+      <span class="font-weight-bold">Departamento:</span> {{ user.department.number }}  
+    </p>
+  {% endif %}
+</div>
+{% endblock %}

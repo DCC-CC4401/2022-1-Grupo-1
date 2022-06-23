@@ -2,44 +2,52 @@
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from base.models import file_path
 from users.models import User
 
 from .enums import ParkingStatus
+from .enums import ValidationCodeStatus
+from .utils import create_validation_code
 
 
 # Create your models here.
 class Visit(models.Model):
     """Model that represents a visit"""
 
-    # TODO: add department foreign key when department model is created
+    department = models.ForeignKey(
+        "Department",
+        on_delete=models.CASCADE,
+        verbose_name=_("department"),
+        related_name="visits",
+    )
     rut = models.CharField(
-        verbose_name="rut",
+        _("rut"),
         max_length=13,
     )
     name = models.CharField(
-        verbose_name="name",
+        _("name"),
         max_length=50,
     )
     first_last_name = models.CharField(
-        verbose_name="first last name",
+        _("first last name"),
         max_length=50,
     )
     second_last_name = models.CharField(
-        verbose_name="second last name",
+        _("second last name"),
         max_length=50,
     )
     phone = models.CharField(
-        verbose_name="phone",
+        _("phone"),
         max_length=13,
     )
     date = models.DateField(
-        verbose_name="date",
+        _("date"),
         default=timezone.now,
     )
     check_in = models.TimeField(
-        verbose_name="check in",
+        _("check in"),
         default=timezone.now,
     )
 
@@ -54,18 +62,19 @@ class Announcement(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
+        verbose_name=_("user"),
         related_name="announcements",
     )
     date = models.DateField(
-        verbose_name="date",
+        _("date"),
         default=timezone.now,
     )
     title = models.CharField(
-        verbose_name="title",
+        _("title"),
         max_length=255,
     )
     description = models.TextField(
-        verbose_name="description",
+        _("description"),
     )
     image = models.ImageField(
         upload_to=file_path,
@@ -83,32 +92,72 @@ class Announcement(models.Model):
         return reverse("announcement_detail", args=(self.pk,))
 
     def __str__(self):
-        return f"Anuncio: {self.title}"
+        return f"{_('Announcement')}: {self.title}"
 
 
 class Parking(models.Model):
     """Model for parking table"""
 
     status = models.CharField(
-        verbose_name="Status",
+        _("status"),
         max_length=10,
         choices=ParkingStatus.CHOICES,
-        # ver lo de las opciones
     )
-
     number = models.IntegerField(
-        verbose_name="Parking space number"
-        # Ver que solo sea una cantidad definida
+        _("parking space number"),
     )
-
-    # TODO: agregar atrib department
-
+    department = models.ForeignKey(
+        "Department",
+        on_delete=models.CASCADE,
+        verbose_name=_("department"),
+        related_name="parkings",
+        blank=True,
+        null=True,
+    )
     license_plate = models.CharField(
-        verbose_name="license plate",
+        _("license plate"),
         max_length=8,
         blank=True,
     )
 
     def get_absolute_url(self):
-        # TODO: change this when detail view available
         return reverse("parking_list")
+
+
+class Department(models.Model):
+    """Model that represents a department"""
+
+    number = models.IntegerField(
+        _("number"),
+    )
+
+    def __str__(self):
+        return str(self.number)
+
+
+class ValidationCode(models.Model):
+    """Model that representa a validation code for the doormans"""
+
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name=_("user"),
+        related_name="validation_code",
+        blank=True,
+        null=True,
+    )
+    code = models.CharField(
+        _("code"),
+        max_length=10,
+        default=create_validation_code,
+    )
+    status = models.CharField(
+        _("status"),
+        max_length=10,
+        choices=ValidationCodeStatus.CHOICES,
+    )
+
+    def use(self, user):
+        self.status = ValidationCodeStatus.USED
+        self.user = user
+        self.save()

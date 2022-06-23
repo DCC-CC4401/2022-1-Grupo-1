@@ -21,7 +21,6 @@ class AnnouncementCreateView(BaseCreateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        print(context["form"].errors)
         return context
 
     def get_form_kwargs(self):

@@ -6,7 +6,7 @@ def create_groups(apps, schema_editor):
     Group = apps.get_model("auth", "Group")
     Group.objects.bulk_create(
         [
-            Group(name="resident"),
+            Group(name="habitant"),
             Group(name="doorman"),
         ]
     )
@@ -15,7 +15,7 @@ def revert_migration(apps, schema_editor):
     Group = apps.get_model("auth", "Group")
     Group.objects.filter(
         name__in=[
-            "resident",
+            "habitant",
             "doorman",
         ]
     ).delete()

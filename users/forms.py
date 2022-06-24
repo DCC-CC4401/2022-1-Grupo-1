@@ -1,6 +1,7 @@
 # django
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth.models import Group
 from django.utils.translation import gettext as _
 
 from department.enums import ValidationCodeStatus
@@ -35,7 +36,7 @@ class RegisterForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = [
+        fields = (
             "user_type",
             "validation_code",
             "department_number",
@@ -45,12 +46,7 @@ class RegisterForm(forms.ModelForm):
             "first_last_name",
             "second_last_name",
             "phone",
-        ]
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for key, value in self.fields.items():
-            print(key, value.label)
+        )
 
     def clean_email(self):
         """
@@ -96,16 +92,24 @@ class RegisterForm(forms.ModelForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password"])
+        groups = []
+
         if self.cleaned_data["user_type"] == UserType.HABITANT:
             user.department = Department.objects.get(
                 number=self.cleaned_data["department_number"]
             )
+            groups.append(Group.objects.get(name="habitant"))
+
+        elif self.cleaned_data["user_type"] == UserType.DOORMAN:
+            ValidationCode.objects.get(code=self.cleaned_data["validation_code"]).use(
+                user
+            )
+            groups.append(Group.objects.get(name="doorman"))
+
         if commit:
             user.save()
-            if self.cleaned_data["user_type"] == UserType.DOORMAN:
-                ValidationCode.objects.get(
-                    code=self.cleaned_data["validation_code"]
-                ).use(user)
+            user.groups.add(*groups)
+
         return user
 
 

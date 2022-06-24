@@ -1,4 +1,5 @@
 {% extends "base/form.html" %}
+{% load i18n %}
 
 {%block content%}
 <table class="table">
@@ -14,20 +15,12 @@
   <tbody>
       {% for parking in object_list %}
           <tr>
+              <td>{{ parking.number }}</td>
+              <td>{{ parking.department }}</td>
+              <td>{{ parking.license_plate }}</td>
+              <td>{{ parking.status }}</td>
               <td>
-                  {{parking.pk}}
-              </td>
-              <td>
-                  
-              </td>
-              <td>
-                  {{parking.license_plate}}
-              </td>
-              <td>
-                  {{parking.status}}
-              </td>
-              <td>
-                  <a class="btn btn-outline-success" href="{% url "parking_update" parking.pk %}">Actualizar</a>
+                  <a class="btn btn-outline-success" href="{% url "parking_update" parking.pk %}">{% trans "Update" %}</a>
               </td>
           </tr>
       {% endfor %}

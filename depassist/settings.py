@@ -59,7 +59,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
+    # "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -146,7 +146,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGOUT_REDIRECT_URL = "/"
 
 # Define Locale path
-LOCALE_PATHS = (os.path.join(BASE_DIR, "locale/"),)
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "users/locale/"),
+    os.path.join(BASE_DIR, "base/locale/"),
+    os.path.join(BASE_DIR, "department/locale/"),
+    os.path.join(BASE_DIR, "locale/"),
+)
 
 # enable bootstrap for crispy-forms
 CRISPY_TEMPLATE_PACK = "bootstrap4"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-23 19:49-0400\n"
+"POT-Creation-Date: 2022-06-24 12:19-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,41 +26,49 @@ msgstr "Habitante"
 msgid "Doorman"
 msgstr "Conserje"
 
-#: forms.py:16
+#: forms.py:17
 msgid "User Type"
 msgstr "Tipo de usuario"
 
-#: forms.py:20
+#: forms.py:21
 msgid "Validation Code"
 msgstr "Codigo de validación"
 
-#: forms.py:24
+#: forms.py:25 templates/users/detail.html:33
 msgid "Department"
 msgstr "Departamento"
 
-#: forms.py:28
+#: forms.py:29
 msgid "Password"
 msgstr "Contraseña"
 
-#: forms.py:32
+#: forms.py:33
 msgid "Confirm Password"
 msgstr "Confirmar Contraseña"
 
-#: forms.py:57
+#: forms.py:58
 msgid "An account with this email already exists"
 msgstr "Una cuenta con este email ya existe"
 
-#: forms.py:67
+#: forms.py:68
 msgid "Your passwords must match"
 msgstr "Las contraseñas deben coincidir"
 
-#: forms.py:74
+#: forms.py:75
 msgid "You must specify a department number"
 msgstr "Se debe especificar un numero de departamento"
 
-#: forms.py:88
+#: forms.py:86
 msgid "The code entered isn't available"
 msgstr "El codigo ingresado no esta disponible"
+
+#: managers.py:11
+msgid "Users must have a rut"
+msgstr "El usuario debe tener rut"
+
+#: managers.py:13
+msgid "Users must have an email address"
+msgstr "El usuario debe tener email"
 
 #: models.py:17
 msgid "rut"
@@ -98,18 +106,46 @@ msgstr "usuario"
 msgid "users"
 msgstr "usuarios"
 
-#: views.py:16
+#: templates/users/detail.html:5
+msgid "Update"
+msgstr "Actualizar"
+
+#: templates/users/detail.html:8
+msgid "Rut"
+msgstr "Rut"
+
+#: templates/users/detail.html:12
+msgid "Email"
+msgstr "Email"
+
+#: templates/users/detail.html:16
+msgid "Name"
+msgstr "Nombre"
+
+#: templates/users/detail.html:20
+msgid "First Last Name"
+msgstr "Primer Apellido"
+
+#: templates/users/detail.html:24
+msgid "Second Last Name"
+msgstr "segundo apellido"
+
+#: templates/users/detail.html:28
+msgid "Phone"
+msgstr "Telefono"
+
+#: views.py:17
 msgid "Login"
 msgstr "Login"
 
-#: views.py:28
+#: views.py:32
 msgid "Register"
 msgstr "Registro"
 
-#: views.py:36
+#: views.py:40
 msgid "Profile"
 msgstr "Perfil"
 
-#: views.py:47
+#: views.py:51
 msgid "Update profile"
 msgstr "Actualizar perfil"

@@ -1,35 +1,36 @@
 {% extends "base/base.html" %}
+{% load i18n %}
 
 {% block content %}
-<a class="btn btn-outline-primary mb-3" href="{% url "user_edit" %}">Editar</a>
+<a class="btn btn-outline-primary mb-3" href="{% url "user_update" %}">{% trans "Update" %}</a>
 <div class="border border-dark p-5">
   <p>
-    <span class="font-weight-bold">Rut:</span> {{ user.rut }}  
+    <span class="font-weight-bold">{% trans "Rut" %}:</span> {{ user.rut }}  
   </p>
   <br>
   <p>
-    <span class="font-weight-bold">Email:</span> {{ user.email }}  
+    <span class="font-weight-bold">{% trans "Email" %}:</span> {{ user.email }}  
   </p>
   <br>
   <p>
-    <span class="font-weight-bold">Nombre:</span> {{ user.name }}  
+    <span class="font-weight-bold">{% trans "Name" %}:</span> {{ user.name }}  
   </p>
   <br>
   <p>
-    <span class="font-weight-bold">Primer Apellido:</span> {{ user.first_last_name }}  
+    <span class="font-weight-bold">{% trans "First Last Name" %}:</span> {{ user.first_last_name }}  
   </p>
   <br>
   <p>
-    <span class="font-weight-bold">Segundo Apellido:</span> {{ user.second_last_name }}  
+    <span class="font-weight-bold">{% trans "Second Last Name" %}:</span> {{ user.second_last_name }}  
   </p>
   <br>
   <p>
-    <span class="font-weight-bold">Telefono:</span> {{ user.phone }}  
+    <span class="font-weight-bold">{% trans "Phone" %}:</span> {{ user.phone }}  
   </p>
   <br>
   {% if user.department %}
     <p>
-      <span class="font-weight-bold">Departamento:</span> {{ user.department.number }}  
+      <span class="font-weight-bold">{% trans "Department" %}:</span> {{ user.department }}  
     </p>
   {% endif %}
 </div>

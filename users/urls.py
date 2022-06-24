@@ -24,9 +24,9 @@ urlpatterns = [
         name="profile",
     ),
     path(
-        "edit/",
+        "update/",
         users_views.UserUpdateView.as_view(),
-        name="user_edit",
+        name="user_update",
     ),
     path(
         "logout/",

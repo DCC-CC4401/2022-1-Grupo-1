@@ -1,3 +1,6 @@
+# django
+from django.utils.translation import gettext as _
+
 from base.views import BaseListView
 from base.views import BaseUpdateView
 from department.forms import ParkingChangeForm
@@ -5,7 +8,7 @@ from department.models import Parking
 
 
 class ParkingListView(BaseListView):
-    title = "Estacionamientos"
+    title = _("Parking List")
     model = Parking
     login_required = True
     permission_required = ("department.view_parking",)
@@ -13,7 +16,6 @@ class ParkingListView(BaseListView):
 
 
 class ParkingUpdateView(BaseUpdateView):
-    title = "Estacionamientos"
     model = Parking
     form_class = ParkingChangeForm
     login_required = True
@@ -29,4 +31,4 @@ class ParkingUpdateView(BaseUpdateView):
         return self.object.user == request.user
 
     def get_title(self):
-        return str(self.object)
+        return f"{_('Update')}: {self.object}"

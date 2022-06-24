@@ -1,5 +1,6 @@
 # django
 from django.urls import reverse
+from django.utils.translation import gettext as _
 
 from base.views import BaseCreateView
 from base.views import BaseDeleteView
@@ -12,7 +13,7 @@ from department.models import Announcement
 
 
 class AnnouncementCreateView(BaseCreateView):
-    title = "Nuevo Anuncio"
+    title = _("New Announcement")
     model = Announcement
     form_class = AnnouncementForm
     login_required = True
@@ -30,7 +31,6 @@ class AnnouncementCreateView(BaseCreateView):
 
 
 class AnnouncementUpdateView(BaseUpdateView):
-    title = "Anuncios"
     model = Announcement
     form_class = AnnouncementChangeForm
     login_required = True
@@ -46,13 +46,13 @@ class AnnouncementUpdateView(BaseUpdateView):
         return self.object.user == request.user
 
     def get_title(self):
-        return str(self.object)
+        return f"{_('Update')}: {self.object}"
 
 
 class AnnouncementDetailView(BaseDetailView):
     model = Announcement
     login_required = True
-    permission_required = ("department.view_announcemnet",)
+    permission_required = ("department.view_announcement",)
     context_object_name = "announcement"
     template_name = "announcements/detail.html"
 
@@ -81,11 +81,11 @@ class AnnouncementDeleteView(BaseDeleteView):
         return self.object.user == request.user
 
     def get_title(self):
-        return f"Eliminar {self.object}"
+        return f"{_('Delete')}: {self.object}"
 
 
 class AnnouncementListView(BaseListView):
-    title = "Anuncios"
+    title = _("Announcement List")
     model = Announcement
     login_required = True
     permission_required = ("department.view_announcement",)

@@ -1,7 +1,7 @@
 # django
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 
 from department.enums import ValidationCodeStatus
 from department.models import Department
@@ -25,7 +25,7 @@ class RegisterForm(forms.ModelForm):
         required=False,
     )
     password = forms.CharField(
-        label=_("Passwrod"),
+        label=_("Password"),
         widget=forms.PasswordInput,
     )
     password_2 = forms.CharField(
@@ -46,6 +46,11 @@ class RegisterForm(forms.ModelForm):
             "second_last_name",
             "phone",
         ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for key, value in self.fields.items():
+            print(key, value.label)
 
     def clean_email(self):
         """

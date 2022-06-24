@@ -1,14 +1,14 @@
 # django
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 
 
 class ParkingStatus:
-    FREE = "Libre"
-    OCCUPIED = "Ocupado"
+    FREE = "Free"
+    OCCUPIED = "Occupied"
 
     CHOICES = (
-        (FREE, _("Libre")),
-        (OCCUPIED, _("Ocupado")),
+        (FREE, _("Free")),
+        (OCCUPIED, _("Occupied")),
     )
 
 

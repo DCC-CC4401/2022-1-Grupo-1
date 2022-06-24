@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-23 19:49-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: enums.py:10
+msgid "Free"
+msgstr "Libre"
+
+#: enums.py:11
+msgid "Occupied"
+msgstr "Ocupado"
+
+#: enums.py:20
+msgid "Available"
+msgstr "Disponible"
+
+#: enums.py:21
+msgid "Used"
+msgstr "Usado"
+
+#: models.py:22 models.py:121 models.py:148
+msgid "department"
+msgstr "departamento"
+
+#: models.py:26
+msgid "rut"
+msgstr "rut"
+
+#: models.py:30
+msgid "name"
+msgstr "nombre"
+
+#: models.py:34
+msgid "first last name"
+msgstr "primer apellido"
+
+#: models.py:38
+msgid "second last name"
+msgstr "segundo apellido"
+
+#: models.py:42
+msgid "phone"
+msgstr "telefono"
+
+#: models.py:46 models.py:73
+msgid "date"
+msgstr "fecha"
+
+#: models.py:50
+msgid "check in"
+msgstr "hora de ingreso"
+
+#: models.py:55
+msgid "visit"
+msgstr "visita"
+
+#: models.py:56
+msgid "visits"
+msgstr "visitas"
+
+#: models.py:69 models.py:161
+msgid "user"
+msgstr "usuario"
+
+#: models.py:77
+msgid "title"
+msgstr "título"
+
+#: models.py:81
+msgid "description"
+msgstr "descripción"
+
+#: models.py:84
+msgid "image"
+msgstr "imagen"
+
+#: models.py:89
+msgid "announcement"
+msgstr "anuncio"
+
+#: models.py:90
+msgid "announcements"
+msgstr "anuncios"
+
+#: models.py:111 models.py:172
+msgid "status"
+msgstr "estado"
+
+#: models.py:116
+msgid "parking space number"
+msgstr "number de estacionamiento"
+
+#: models.py:127
+msgid "license plate"
+msgstr "patente"
+
+#: models.py:133
+msgid "parking"
+msgstr "estacionamiento"
+
+#: models.py:134
+msgid "parkings"
+msgstr "estacionamientos"
+
+#: models.py:144
+msgid "number"
+msgstr "número"
+
+#: models.py:149
+msgid "departments"
+msgstr "departamentos"
+
+#: models.py:167
+msgid "code"
+msgstr "código"
+
+#: models.py:178
+msgid "validation code"
+msgstr "código de validación"
+
+#: models.py:179
+msgid "validation codes"
+msgstr "códigos de validación"

@@ -73,9 +73,6 @@ class RegisterForm(forms.ModelForm):
         if self.cleaned_data["user_type"] == UserType.HABITANT:
             if department_number is None:
                 raise forms.ValidationError(_("You must specify a department number"))
-            qs = Department.objects.filter(number=department_number)
-            if not qs.exists():
-                Department.objects.create(number=department_number)
             return department_number
         return None
 
@@ -92,23 +89,24 @@ class RegisterForm(forms.ModelForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password"])
-        groups = []
+
+        if not commit:
+            return user
+
+        user.save()
 
         if self.cleaned_data["user_type"] == UserType.HABITANT:
-            user.department = Department.objects.get(
-                number=self.cleaned_data["department_number"]
-            )
-            groups.append(Group.objects.get(name="habitant"))
+            department_number = self.cleaned_data["department_number"]
+            qs = Department.objects.filter(number=department_number)
+            if not qs.exists():
+                Department.objects.create(number=department_number)
+            user.department = Department.objects.get(number=department_number)
+            user.groups.add(Group.objects.get(name="habitant"))
 
         elif self.cleaned_data["user_type"] == UserType.DOORMAN:
-            ValidationCode.objects.get(code=self.cleaned_data["validation_code"]).use(
-                user
-            )
-            groups.append(Group.objects.get(name="doorman"))
-
-        if commit:
-            user.save()
-            user.groups.add(*groups)
+            validation_code = self.cleaned_data["validation_code"]
+            ValidationCode.objects.get(code=validation_code).use(user)
+            user.groups.add(Group.objects.get(name="doorman"))
 
         return user
 

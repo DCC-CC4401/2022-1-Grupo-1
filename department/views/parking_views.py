@@ -8,7 +8,7 @@ class ParkingListView(BaseListView):
     title = "Estacionamientos"
     model = Parking
     login_required = True
-    permission_required = ()
+    permission_required = ("department.view_parking",)
     template_name = "parking/list.html"
 
 
@@ -17,7 +17,7 @@ class ParkingUpdateView(BaseUpdateView):
     model = Parking
     form_class = ParkingChangeForm
     login_required = True
-    permission_required = ()
+    permission_required = ("department.change_parking",)
     template_name = "parking/update.html"
 
     def get_context_data(self, **kwargs):

@@ -1,5 +1,6 @@
 # django
 from django.contrib.auth import views as auth_views
+from django.urls import reverse
 from django.utils.translation import gettext as _
 
 from base.views import BaseCreateView
@@ -20,6 +21,9 @@ class LoginView(auth_views.LoginView):
         context = super().get_context_data(**kwargs)
         context["title"] = self.title
         return context
+
+    def get_success_url(self):
+        return reverse("home")
 
 
 class UserCreateView(BaseCreateView):

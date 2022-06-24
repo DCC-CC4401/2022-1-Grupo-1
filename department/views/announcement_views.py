@@ -16,7 +16,7 @@ class AnnouncementCreateView(BaseCreateView):
     model = Announcement
     form_class = AnnouncementForm
     login_required = True
-    permission_required = ()
+    permission_required = ("department.add_announcement",)
     template_name = "announcements/create.html"
 
     def get_context_data(self, *args, **kwargs):
@@ -34,7 +34,7 @@ class AnnouncementUpdateView(BaseUpdateView):
     model = Announcement
     form_class = AnnouncementChangeForm
     login_required = True
-    permission_required = ()
+    permission_required = ("department.change_announcement",)
     template_name = "announcements/update.html"
 
     def get_context_data(self, **kwargs):
@@ -52,7 +52,7 @@ class AnnouncementUpdateView(BaseUpdateView):
 class AnnouncementDetailView(BaseDetailView):
     model = Announcement
     login_required = True
-    permission_required = ()
+    permission_required = ("department.view_announcemnet",)
     context_object_name = "announcement"
     template_name = "announcements/detail.html"
 
@@ -70,7 +70,7 @@ class AnnouncementDetailView(BaseDetailView):
 class AnnouncementDeleteView(BaseDeleteView):
     model = Announcement
     login_required = True
-    permission_required = ()
+    permission_required = ("department.delete_announcement",)
     context_object_name = "announcement"
     template_name = "announcements/delete.html"
 
@@ -88,7 +88,7 @@ class AnnouncementListView(BaseListView):
     title = "Anuncios"
     model = Announcement
     login_required = True
-    permission_required = ()
+    permission_required = ("department.view_announcement",)
     template_name = "announcements/list.html"
     paginate_by = 12
 

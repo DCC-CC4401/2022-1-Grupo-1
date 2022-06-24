@@ -10,6 +10,7 @@ class VisitForm(forms.ModelForm):
     class Meta:
         model = Visit
         fields = (
+            "department",
             "rut",
             "name",
             "first_last_name",

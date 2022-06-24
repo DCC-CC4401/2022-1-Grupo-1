@@ -1,0 +1,13 @@
+{% load i18n %}
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">{{ title }}</a>
+  <form class="form-inline">
+    {% if add_button %}
+    <a class="btn btn-outline-success my-2 my-sm-0" href="{% url "visit_create" %}">{% trans "Add" %}</a>
+    {% endif %}
+    {% if back_button %}
+    <a class="btn btn-outline-secondary my-2 my-sm-0" href="javascript:history.back()">{% trans "Go back" %}</a>
+    {% endif %}
+  </form>
+</nav>
+<br>

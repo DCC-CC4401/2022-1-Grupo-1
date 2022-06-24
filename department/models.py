@@ -55,9 +55,11 @@ class Visit(models.Model):
         verbose_name = _("visit")
         verbose_name_plural = _("visits")
 
+    def __str__(self):
+        return f"{self.name} {self.first_last_name} {self.second_last_name}"
+
     def get_absolute_url(self):
-        # TODO: change this when detail view available
-        return reverse("home")
+        return reverse("visit_list")
 
 
 class Announcement(models.Model):
@@ -97,7 +99,6 @@ class Announcement(models.Model):
         return short_description
 
     def get_absolute_url(self):
-        # TODO: change this when detail view available
         return reverse("announcement_detail", args=(self.pk,))
 
     def __str__(self):

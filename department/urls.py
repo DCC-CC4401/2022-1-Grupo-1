@@ -10,6 +10,11 @@ visit_urlpatterns = [
         views.VisitCreateView.as_view(),
         name="visit_create",
     ),
+    path(
+        "list/",
+        views.VisitListView.as_view(),
+        name="visit_list",
+    ),
 ]
 
 announcement_urlpatterns = [

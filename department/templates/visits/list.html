@@ -1,0 +1,34 @@
+{% extends "base/form.html" %}
+{% load i18n %}
+
+{%block content%}
+{% include "visits/includes/visit_navbar.html" %}
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">{% trans "Department" %}</th>
+      <th scope="col">{% trans "Rut" %}</th>
+      <th scope="col">{% trans "Name" %}</th>
+      <th scope="col">{% trans "First Last Name" %}</th>
+      <th scope="col">{% trans "Second Last Name" %}</th>
+      <th scope="col">{% trans "Phone" %}</th>
+      <th scope="col">{% trans "Date" %}</th>
+      <th scope="col">{% trans "Check in" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for visit in object_list %}
+          <tr>
+              <td>{{ visit.department }}</td>
+              <td>{{ visit.rut }}</td>
+              <td>{{ visit.name }}</td>
+              <td>{{ visit.first_last_name }}</td>
+              <td>{{ visit.second_last_name }}</td>
+              <td>{{ visit.phone }}</td>
+              <td>{{ visit.date }}</td>
+              <td>{{ visit.check_in }}</td>
+          </tr>
+      {% endfor %}
+  </tbody>
+</table>
+{%endblock%}

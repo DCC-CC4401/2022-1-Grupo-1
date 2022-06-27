@@ -28,7 +28,9 @@ class ParkingUpdateView(BaseUpdateView):
         return context
 
     def can_access(self, request):
-        return self.object.user == request.user
+        return (
+            request.user.groups.filter(name="doorman").exists() or request.user.is_admin
+        )
 
     def get_title(self):
         return f"{_('Update')}: {self.object}"

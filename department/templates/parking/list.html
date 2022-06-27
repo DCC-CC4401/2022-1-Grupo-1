@@ -16,9 +16,9 @@
       {% for parking in object_list %}
           <tr>
               <td>{{ parking.number }}</td>
-              <td>{{ parking.department }}</td>
+              <td>{% if parking.department %}{{ parking.department }}{% endif %}</td>
               <td>{{ parking.license_plate }}</td>
-              <td>{{ parking.status }}</td>
+              <td>{% translate parking.status %}</td>
               <td>
                   <a class="btn btn-outline-success" href="{% url "parking_update" parking.pk %}">{% trans "Update" %}</a>
               </td>

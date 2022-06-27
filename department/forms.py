@@ -48,6 +48,7 @@ class ParkingChangeForm(forms.ModelForm):
     class Meta:
         model = Parking
         fields = (
+            "department",
             "license_plate",
             "status",
         )

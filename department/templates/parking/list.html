@@ -9,7 +9,7 @@
       <th scope="col">Departamento</th>
       <th scope="col">Patente</th>
       <th scope="col">Estado</th>
-      {% if perms.change_parking %}<th scope="col"></th>{% endif %}
+      {% if perms.department.change_parking %}<th scope="col"></th>{% endif %}
     </tr>
   </thead>
   <tbody>
@@ -19,7 +19,7 @@
           <td>{% if parking.department %}{{ parking.department }}{% endif %}</td>
           <td>{{ parking.license_plate }}</td>
           <td>{% translate parking.status %}</td>
-          {% if perms.change_parking %}
+          {% if perms.department.change_parking %}
             <td>
                 <a class="btn btn-outline-success" href="{% url "parking_update" parking.pk %}">{% trans "Update" %}</a>
             </td>

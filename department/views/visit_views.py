@@ -26,6 +26,7 @@ class VisitListView(BaseListView):
     template_name = "visits/list.html"
     login_required = True
     permission_required = ("department.view_visit",)
+    paginate_by = 25
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

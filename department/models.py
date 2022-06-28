@@ -51,6 +51,7 @@ class Visit(models.Model):
     class Meta:
         verbose_name = _("visit")
         verbose_name_plural = _("visits")
+        ordering = ["-date", "-check_in"]
 
     def __str__(self):
         return f"{self.name} {self.first_last_name} {self.second_last_name}"

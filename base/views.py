@@ -1,4 +1,5 @@
 # django
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
@@ -29,7 +30,7 @@ class BaseCreateView(LoginPermissionRequiredMixin, TitleMixin, CreateView):
         if self.title:
             return self.title
         verbose_name = self.model._meta.verbose_name
-        return f"Create {verbose_name}"
+        return f"{_('Create')} {verbose_name}"
 
 
 class BaseUpdateView(
@@ -41,7 +42,7 @@ class BaseUpdateView(
     def get_title(self):
         if self.title:
             return self.title
-        return f"Update {self.object}"
+        return f"{_('Update')} {self.object}"
 
 
 class BaseListView(LoginPermissionRequiredMixin, TitleMixin, ListView):
@@ -64,7 +65,7 @@ class BaseDeleteView(
         if self.title:
             return self.title
         verbose_name = self.model._meta.verbose_name
-        return f"Delete {verbose_name}"
+        return f"{_('Delete')}: {verbose_name}"
 
 
 class IndexView(BaseTemplateView):

@@ -1,0 +1,235 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-27 21:08-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: enums.py:10
+msgid "Free"
+msgstr "Libre"
+
+#: enums.py:11
+msgid "Occupied"
+msgstr "Ocupado"
+
+#: enums.py:20
+msgid "Available"
+msgstr "Disponible"
+
+#: enums.py:21
+msgid "Used"
+msgstr "Usado"
+
+#: models.py:21 models.py:119 models.py:146
+msgid "department"
+msgstr "departamento"
+
+#: models.py:25
+msgid "rut"
+msgstr "rut"
+
+#: models.py:29
+msgid "name"
+msgstr "nombre"
+
+#: models.py:33
+msgid "first last name"
+msgstr "primer apellido"
+
+#: models.py:37
+msgid "second last name"
+msgstr "segundo apellido"
+
+#: models.py:41
+msgid "phone"
+msgstr "teléfono"
+
+#: models.py:45 models.py:72
+msgid "date"
+msgstr "fecha"
+
+#: models.py:48
+msgid "check in"
+msgstr "hora de ingreso"
+
+#: models.py:52
+msgid "visit"
+msgstr "visita"
+
+#: models.py:53
+msgid "visits"
+msgstr "visitas"
+
+#: models.py:68 models.py:159
+msgid "user"
+msgstr "usuario"
+
+#: models.py:76
+msgid "title"
+msgstr "título"
+
+#: models.py:80
+msgid "description"
+msgstr "descripción"
+
+#: models.py:83
+msgid "image"
+msgstr "imagen"
+
+#: models.py:88
+msgid "announcement"
+msgstr "anuncio"
+
+#: models.py:89
+msgid "announcements"
+msgstr "anuncios"
+
+#: models.py:109 models.py:170
+msgid "status"
+msgstr "estado"
+
+#: models.py:114
+msgid "parking space number"
+msgstr "number de estacionamiento"
+
+#: models.py:125
+msgid "license plate"
+msgstr "patente"
+
+#: models.py:131
+msgid "parking"
+msgstr "estacionamiento"
+
+#: models.py:132
+msgid "parkings"
+msgstr "estacionamientos"
+
+#: models.py:142
+msgid "number"
+msgstr "número"
+
+#: models.py:147
+msgid "departments"
+msgstr "departamentos"
+
+#: models.py:165
+msgid "code"
+msgstr "código"
+
+#: models.py:176
+msgid "validation code"
+msgstr "código de validación"
+
+#: models.py:177
+msgid "validation codes"
+msgstr "códigos de validación"
+
+#: templates/announcements/detail.html:8
+msgid "Title"
+msgstr "Título"
+
+#: templates/announcements/detail.html:11
+msgid "Description"
+msgstr "Descripción"
+
+#: templates/announcements/includes/announcement_navbar.html:6
+#: templates/visits/includes/visit_navbar.html:6
+msgid "Add"
+msgstr "Añadir"
+
+#: templates/announcements/includes/announcement_navbar.html:9
+#: templates/announcements/list.html:17 templates/parking/list.html:24
+msgid "Update"
+msgstr "Fecha"
+
+#: templates/announcements/includes/announcement_navbar.html:12
+#: templates/announcements/list.html:18
+msgid "Delete"
+msgstr "Eliminar"
+
+#: templates/announcements/includes/announcement_navbar.html:15
+#: templates/visits/includes/visit_navbar.html:9
+msgid "Go back"
+msgstr "Volver"
+
+#: templates/announcements/list.html:15
+msgid "Detail"
+msgstr "Detalle"
+
+#: templates/announcements/list.html:29 templates/announcements/list.html:33
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/announcements/list.html:64
+msgid "Next"
+msgstr "Siguiente"
+
+#: templates/announcements/list.html:71
+msgid "There are no announcements to show"
+msgstr "No hay anuncios para mostrar"
+
+#: templates/visits/list.html:9
+msgid "Department"
+msgstr "Departamento"
+
+#: templates/visits/list.html:10
+msgid "Rut"
+msgstr "Rut"
+
+#: templates/visits/list.html:11
+msgid "Name"
+msgstr "Nombre"
+
+#: templates/visits/list.html:12
+msgid "First Last Name"
+msgstr "Primer Apellido"
+
+#: templates/visits/list.html:13
+msgid "Second Last Name"
+msgstr "Segundo Apellido"
+
+#: templates/visits/list.html:14
+msgid "Phone"
+msgstr "Teléfono"
+
+#: templates/visits/list.html:15
+msgid "Date"
+msgstr "Fecha"
+
+#: templates/visits/list.html:16
+msgid "Check in"
+msgstr "Hora de ingreso"
+
+#: views/announcement_views.py:16
+msgid "New Announcement"
+msgstr "Nuevo Anuncio"
+
+#: views/announcement_views.py:88
+msgid "Announcement List"
+msgstr "Lista de Anuncios"
+
+#: views/parking_views.py:11
+msgid "Parking List"
+msgstr "Lista de Estacionamientos"
+
+#: views/visit_views.py:11
+msgid "New visit"
+msgstr "Nueva visita"
+
+#: views/visit_views.py:25
+msgid "Visit List"
+msgstr "Lista de Visitas"

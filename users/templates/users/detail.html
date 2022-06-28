@@ -1,0 +1,37 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<a class="btn btn-outline-primary mb-3" href="{% url "user_update" %}">{% trans "Update" %}</a>
+<div class="border border-dark p-5">
+  <p>
+    <span class="font-weight-bold">{% trans "Rut" %}:</span> {{ user.rut }}  
+  </p>
+  <br>
+  <p>
+    <span class="font-weight-bold">{% trans "Email" %}:</span> {{ user.email }}  
+  </p>
+  <br>
+  <p>
+    <span class="font-weight-bold">{% trans "Name" %}:</span> {{ user.name }}  
+  </p>
+  <br>
+  <p>
+    <span class="font-weight-bold">{% trans "First Last Name" %}:</span> {{ user.first_last_name }}  
+  </p>
+  <br>
+  <p>
+    <span class="font-weight-bold">{% trans "Second Last Name" %}:</span> {{ user.second_last_name }}  
+  </p>
+  <br>
+  <p>
+    <span class="font-weight-bold">{% trans "Phone" %}:</span> {{ user.phone }}  
+  </p>
+  <br>
+  {% if user.department %}
+    <p>
+      <span class="font-weight-bold">{% trans "Department" %}:</span> {{ user.department }}  
+    </p>
+  {% endif %}
+</div>
+{% endblock %}

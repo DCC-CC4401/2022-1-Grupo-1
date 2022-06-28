@@ -1,5 +1,22 @@
-class ParkingStatus:
-    FREE = "Libre"
-    OCCUPIED = "Ocupado"
+# django
+from django.utils.translation import gettext_lazy as _
 
-    CHOICES = ((FREE, "Libre"), (OCCUPIED, "Ocupado"))
+
+class ParkingStatus:
+    FREE = "Free"
+    OCCUPIED = "Occupied"
+
+    CHOICES = (
+        (FREE, _("Free")),
+        (OCCUPIED, _("Occupied")),
+    )
+
+
+class ValidationCodeStatus:
+    AVAILABLE = "Available"
+    USED = "Used"
+
+    CHOICES = (
+        (AVAILABLE, _("Available")),
+        (USED, _("Used")),
+    )

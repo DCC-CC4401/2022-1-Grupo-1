@@ -1,5 +1,6 @@
 # django
 from django.contrib.auth.models import BaseUserManager
+from django.utils.translation import gettext_lazy as _
 
 
 class UserManager(BaseUserManager):
@@ -7,9 +8,9 @@ class UserManager(BaseUserManager):
         self, rut, email, name, first_last_name, second_last_name, phone, password=None
     ):
         if not rut:
-            raise ValueError("Users must have a rut")
+            raise ValueError(_("Users must have a rut"))
         if not email:
-            raise ValueError("Users must have an email address")
+            raise ValueError(_("Users must have an email address"))
 
         email = self.normalize_email(email)
         user = self.model(

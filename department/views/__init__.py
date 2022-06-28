@@ -6,6 +6,7 @@ from .announcement_views import AnnouncementUpdateView
 from .parking_views import ParkingListView
 from .parking_views import ParkingUpdateView
 from .visit_views import VisitCreateView
+from .visit_views import VisitListView
 
 __all__ = (
     "AnnouncementCreateView",
@@ -13,7 +14,8 @@ __all__ = (
     "AnnouncementDetailView",
     "AnnouncementListView",
     "AnnouncementUpdateView",
-    "VisitCreateView",
     "ParkingListView",
     "ParkingUpdateView",
+    "VisitCreateView",
+    "VisitListView",
 )

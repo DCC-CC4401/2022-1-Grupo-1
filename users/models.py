@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 from .managers import UserManager
 
@@ -13,29 +14,37 @@ class User(AbstractBaseUser, PermissionsMixin):
     """
 
     rut = models.CharField(
-        verbose_name="rut",
+        _("rut"),
         max_length=13,
         unique=True,
     )
     email = models.EmailField(
-        verbose_name="email",
+        _("email"),
         unique=True,
     )
     name = models.CharField(
-        verbose_name="name",
+        _("name"),
         max_length=50,
     )
     first_last_name = models.CharField(
-        verbose_name="first last name",
+        _("first last name"),
         max_length=50,
     )
     second_last_name = models.CharField(
-        verbose_name="second last name",
+        _("second last name"),
         max_length=50,
     )
     phone = models.CharField(
-        verbose_name="phone",
+        _("phone"),
         max_length=13,
+    )
+    department = models.ForeignKey(
+        "department.Department",
+        on_delete=models.CASCADE,
+        verbose_name=_("department"),
+        related_name="habitants",
+        blank=True,
+        null=True,
     )
 
     objects = UserManager()
@@ -55,6 +64,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     admin = models.BooleanField(
         default=False,
     )
+
+    class Meta:
+        verbose_name = _("user")
+        verbose_name_plural = _("users")
 
     def get_full_name(self):
         # Returns the full name of the user
@@ -80,5 +93,4 @@ class User(AbstractBaseUser, PermissionsMixin):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        # TODO: change this when detail view available
-        return reverse("home")
+        return reverse("profile")

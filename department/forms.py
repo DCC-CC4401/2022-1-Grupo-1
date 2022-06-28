@@ -10,6 +10,7 @@ class VisitForm(forms.ModelForm):
     class Meta:
         model = Visit
         fields = (
+            "department",
             "rut",
             "name",
             "first_last_name",
@@ -19,8 +20,8 @@ class VisitForm(forms.ModelForm):
             "check_in",
         )
         widgets = {
-            "date": forms.TextInput(attrs={"type": "date"}),
-            "check_in": forms.TextInput(attrs={"type": "time"}),
+            "date": forms.DateInput(attrs={"type": "date"}),
+            "check_in": forms.TimeInput(attrs={"type": "time"}),
         }
 
 
@@ -47,6 +48,7 @@ class ParkingChangeForm(forms.ModelForm):
     class Meta:
         model = Parking
         fields = (
+            "department",
             "license_plate",
             "status",
         )

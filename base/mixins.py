@@ -22,6 +22,11 @@ class LoginPermissionRequiredMixin(PermissionRequiredMixin):
 
     login_required = None
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["user"] = self.request.user
+        return context
+
     def get_login_required(self):
         if self.login_required is None:
             raise ImproperlyConfigured(

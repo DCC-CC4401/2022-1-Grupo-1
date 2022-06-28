@@ -1,5 +1,6 @@
 # django
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 from base.views import BaseCreateView
 from base.views import BaseDeleteView
@@ -12,16 +13,15 @@ from department.models import Announcement
 
 
 class AnnouncementCreateView(BaseCreateView):
-    title = "Nuevo Anuncio"
+    title = _("New Announcement")
     model = Announcement
     form_class = AnnouncementForm
     login_required = True
-    permission_required = ()
+    permission_required = ("department.add_announcement",)
     template_name = "announcements/create.html"
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        print(context["form"].errors)
         return context
 
     def get_form_kwargs(self):
@@ -31,11 +31,10 @@ class AnnouncementCreateView(BaseCreateView):
 
 
 class AnnouncementUpdateView(BaseUpdateView):
-    title = "Anuncios"
     model = Announcement
     form_class = AnnouncementChangeForm
     login_required = True
-    permission_required = ()
+    permission_required = ("department.change_announcement",)
     template_name = "announcements/update.html"
 
     def get_context_data(self, **kwargs):
@@ -47,13 +46,13 @@ class AnnouncementUpdateView(BaseUpdateView):
         return self.object.user == request.user
 
     def get_title(self):
-        return str(self.object)
+        return f"{_('Update')}: {self.object}"
 
 
 class AnnouncementDetailView(BaseDetailView):
     model = Announcement
     login_required = True
-    permission_required = ()
+    permission_required = ("department.view_announcement",)
     context_object_name = "announcement"
     template_name = "announcements/detail.html"
 
@@ -71,7 +70,7 @@ class AnnouncementDetailView(BaseDetailView):
 class AnnouncementDeleteView(BaseDeleteView):
     model = Announcement
     login_required = True
-    permission_required = ()
+    permission_required = ("department.delete_announcement",)
     context_object_name = "announcement"
     template_name = "announcements/delete.html"
 
@@ -82,14 +81,14 @@ class AnnouncementDeleteView(BaseDeleteView):
         return self.object.user == request.user
 
     def get_title(self):
-        return f"Eliminar {self.object}"
+        return f"{_('Delete')}: {self.object}"
 
 
 class AnnouncementListView(BaseListView):
-    title = "Anuncios"
+    title = _("Announcement List")
     model = Announcement
     login_required = True
-    permission_required = ()
+    permission_required = ("department.view_announcement",)
     template_name = "announcements/list.html"
     paginate_by = 12
 

@@ -2,7 +2,9 @@
 from django.contrib import admin
 
 from .models import Announcement
+from .models import Department
 from .models import Parking
+from .models import ValidationCode
 from .models import Visit
 
 
@@ -18,4 +20,14 @@ class AnnouncementAdmin(admin.ModelAdmin):
 
 @admin.register(Parking)
 class ParkingAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Department)
+class DepartmentAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(ValidationCode)
+class ValidationCodeAdmin(admin.ModelAdmin):
     pass

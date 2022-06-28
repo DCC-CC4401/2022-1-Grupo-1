@@ -1,38 +1,31 @@
 {% extends "base/form.html" %}
+{% load i18n %}
 
 {%block content%}
-
-  <table class="table">
-    <thead class="thead-light">
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Departamento</th>
+      <th scope="col">Patente</th>
+      <th scope="col">Estado</th>
+      {% if perms.department.change_parking %}<th scope="col"></th>{% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for parking in object_list %}
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Departamento</th>
-        <th scope="col">Patente</th>
-        <th scope="col">Estado</th>
-        <th scope="col"></th>
+          <td>{{ parking.number }}</td>
+          <td>{% if parking.department %}{{ parking.department }}{% endif %}</td>
+          <td>{{ parking.license_plate }}</td>
+          <td>{% translate parking.status %}</td>
+          {% if perms.department.change_parking %}
+            <td>
+                <a class="btn btn-outline-success" href="{% url "parking_update" parking.pk %}">{% trans "Update" %}</a>
+            </td>
+          {% endif %}
       </tr>
-    </thead>
-    <tbody>
-        {% for parking in object_list %}
-            <tr>
-                <td>
-                    {{parking.pk}}
-                </td>
-                <td>
-                    
-                </td>
-                <td>
-                    {{parking.license_plate}}
-                </td>
-                <td>
-                    {{parking.status}}
-                </td>
-                <td>
-                    <a class="btn btn-outline-success" href="{% url "parking_update" parking.pk %}">Actualizar</a>
-                </td>
-            </tr>
-        {% endfor %}
-    </tbody>
-  </table>
-
+    {% endfor %}
+  </tbody>
+</table>
 {%endblock%}

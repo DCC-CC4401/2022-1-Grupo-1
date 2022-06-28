@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-24 12:19-0400\n"
+"POT-Creation-Date: 2022-06-27 21:08-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,7 +92,7 @@ msgstr "segundo apellido"
 
 #: models.py:38
 msgid "phone"
-msgstr "telefono"
+msgstr "teléfono"
 
 #: models.py:44
 msgid "department"
@@ -128,11 +128,11 @@ msgstr "Primer Apellido"
 
 #: templates/users/detail.html:24
 msgid "Second Last Name"
-msgstr "segundo apellido"
+msgstr "Segundo Apellido"
 
 #: templates/users/detail.html:28
 msgid "Phone"
-msgstr "Telefono"
+msgstr "Teléfono"
 
 #: views.py:17
 msgid "Login"

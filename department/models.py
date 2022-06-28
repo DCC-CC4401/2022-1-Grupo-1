@@ -1,7 +1,7 @@
 # django
 from django.db import models
 from django.urls import reverse
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from base.models import file_path
 from users.models import User
@@ -99,7 +99,7 @@ class Announcement(models.Model):
         return reverse("announcement_detail", args=(self.pk,))
 
     def __str__(self):
-        return f"{_('Announcement')}: {self.title}"
+        return f"{self.title} {self.date}"
 
 
 class Parking(models.Model):

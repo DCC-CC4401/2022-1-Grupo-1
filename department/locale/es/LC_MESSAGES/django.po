@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-24 12:19-0400\n"
+"POT-Creation-Date: 2022-06-27 21:08-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,107 +34,107 @@ msgstr "Disponible"
 msgid "Used"
 msgstr "Usado"
 
-#: models.py:22 models.py:122 models.py:149
+#: models.py:21 models.py:119 models.py:146
 msgid "department"
 msgstr "departamento"
 
-#: models.py:26
+#: models.py:25
 msgid "rut"
 msgstr "rut"
 
-#: models.py:30
+#: models.py:29
 msgid "name"
 msgstr "nombre"
 
-#: models.py:34
+#: models.py:33
 msgid "first last name"
 msgstr "primer apellido"
 
-#: models.py:38
+#: models.py:37
 msgid "second last name"
 msgstr "segundo apellido"
 
-#: models.py:42
+#: models.py:41
 msgid "phone"
-msgstr "telefono"
+msgstr "teléfono"
 
-#: models.py:46 models.py:75
+#: models.py:45 models.py:72
 msgid "date"
 msgstr "fecha"
 
-#: models.py:50
+#: models.py:48
 msgid "check in"
 msgstr "hora de ingreso"
 
-#: models.py:55
+#: models.py:52
 msgid "visit"
 msgstr "visita"
 
-#: models.py:56
+#: models.py:53
 msgid "visits"
 msgstr "visitas"
 
-#: models.py:71 models.py:162
+#: models.py:68 models.py:159
 msgid "user"
 msgstr "usuario"
 
-#: models.py:79
+#: models.py:76
 msgid "title"
 msgstr "título"
 
-#: models.py:83
+#: models.py:80
 msgid "description"
 msgstr "descripción"
 
-#: models.py:86
+#: models.py:83
 msgid "image"
 msgstr "imagen"
 
-#: models.py:91
+#: models.py:88
 msgid "announcement"
 msgstr "anuncio"
 
-#: models.py:92
+#: models.py:89
 msgid "announcements"
 msgstr "anuncios"
 
-#: models.py:112 models.py:173
+#: models.py:109 models.py:170
 msgid "status"
 msgstr "estado"
 
-#: models.py:117
+#: models.py:114
 msgid "parking space number"
 msgstr "number de estacionamiento"
 
-#: models.py:128
+#: models.py:125
 msgid "license plate"
 msgstr "patente"
 
-#: models.py:134
+#: models.py:131
 msgid "parking"
 msgstr "estacionamiento"
 
-#: models.py:135
+#: models.py:132
 msgid "parkings"
 msgstr "estacionamientos"
 
-#: models.py:145
+#: models.py:142
 msgid "number"
 msgstr "número"
 
-#: models.py:150
+#: models.py:147
 msgid "departments"
 msgstr "departamentos"
 
-#: models.py:168
+#: models.py:165
 msgid "code"
 msgstr "código"
 
-#: models.py:179
+#: models.py:176
 msgid "validation code"
 msgstr "código de validación"
 
-#: models.py:180
+#: models.py:177
 msgid "validation codes"
 msgstr "códigos de validación"
 
@@ -152,7 +152,7 @@ msgid "Add"
 msgstr "Añadir"
 
 #: templates/announcements/includes/announcement_navbar.html:9
-#: templates/announcements/list.html:17 templates/parking/list.html:23
+#: templates/announcements/list.html:17 templates/parking/list.html:24
 msgid "Update"
 msgstr "Fecha"
 
@@ -204,7 +204,7 @@ msgstr "Segundo Apellido"
 
 #: templates/visits/list.html:14
 msgid "Phone"
-msgstr "Telefono"
+msgstr "Teléfono"
 
 #: templates/visits/list.html:15
 msgid "Date"

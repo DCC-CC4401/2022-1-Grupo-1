@@ -1,6 +1,6 @@
 # django
 from django.urls import reverse
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from base.views import BaseCreateView
 from base.views import BaseDeleteView

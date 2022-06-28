@@ -9,21 +9,23 @@
       <th scope="col">Departamento</th>
       <th scope="col">Patente</th>
       <th scope="col">Estado</th>
-      <th scope="col"></th>
+      {% if perms.change_parking %}<th scope="col"></th>{% endif %}
     </tr>
   </thead>
   <tbody>
-      {% for parking in object_list %}
-          <tr>
-              <td>{{ parking.number }}</td>
-              <td>{% if parking.department %}{{ parking.department }}{% endif %}</td>
-              <td>{{ parking.license_plate }}</td>
-              <td>{% translate parking.status %}</td>
-              <td>
-                  <a class="btn btn-outline-success" href="{% url "parking_update" parking.pk %}">{% trans "Update" %}</a>
-              </td>
-          </tr>
-      {% endfor %}
+    {% for parking in object_list %}
+      <tr>
+          <td>{{ parking.number }}</td>
+          <td>{% if parking.department %}{{ parking.department }}{% endif %}</td>
+          <td>{{ parking.license_plate }}</td>
+          <td>{% translate parking.status %}</td>
+          {% if perms.change_parking %}
+            <td>
+                <a class="btn btn-outline-success" href="{% url "parking_update" parking.pk %}">{% trans "Update" %}</a>
+            </td>
+          {% endif %}
+      </tr>
+    {% endfor %}
   </tbody>
 </table>
 {%endblock%}

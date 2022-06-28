@@ -232,4 +232,4 @@ msgstr "Nueva visita"
 
 #: views/visit_views.py:25
 msgid "Visit List"
-msgstr "List de Visitas"
+msgstr "Lista de Visitas"

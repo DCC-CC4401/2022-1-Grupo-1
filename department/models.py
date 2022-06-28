@@ -1,7 +1,6 @@
 # django
 from django.db import models
 from django.urls import reverse
-from django.utils import timezone
 from django.utils.translation import gettext as _
 
 from base.models import file_path
@@ -44,11 +43,9 @@ class Visit(models.Model):
     )
     date = models.DateField(
         _("date"),
-        default=timezone.now,
     )
     check_in = models.TimeField(
         _("check in"),
-        default=timezone.now,
     )
 
     class Meta:
@@ -73,7 +70,7 @@ class Announcement(models.Model):
     )
     date = models.DateField(
         _("date"),
-        default=timezone.now,
+        auto_now_add=True,
     )
     title = models.CharField(
         _("title"),

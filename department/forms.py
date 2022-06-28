@@ -20,8 +20,8 @@ class VisitForm(forms.ModelForm):
             "check_in",
         )
         widgets = {
-            "date": forms.TextInput(attrs={"type": "date"}),
-            "check_in": forms.TextInput(attrs={"type": "time"}),
+            "date": forms.DateInput(attrs={"type": "date"}),
+            "check_in": forms.TimeInput(attrs={"type": "time"}),
         }
 
 
